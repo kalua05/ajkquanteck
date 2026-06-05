@@ -1,9 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Admin Dashboard</title><link rel="stylesheet" href="../css/portfolio.css"><script src="../data/portfolio.js"></script><script src="../js/backend.js"></script></head>
-<body class="bg-void text-white"><div class="container mx-auto p-5"><h1 class="text-3xl font-bold mb-4">Dashboard</h1><div class="flex gap-3 mb-6"><button onclick="showSection('projects')" class="btn-outline">Projects</button><button onclick="showSection('experience')" class="btn-outline">Experience</button><button onclick="showSection('certifications')" class="btn-outline">Certifications</button><button onclick="showSection('skills')" class="btn-outline">Skills</button></div><div id="content"></div></div><script>
-let current='projects'; function showSection(s){ current=s; render(); }
-function render(){ let data=loadData(current); let html=`<h2>Manage ${current}</h2><button onclick="addItem()" class="btn-primary mb-4">+ Add</button><div class="space-y-3">`; if(Array.isArray(data)) data.forEach((item,i)=>{ let title=item.title||item.name||item.role||'Item'; html+=`<div class="glass-card p-4 flex justify-between"><div><strong>${title}</strong><p class="text-sm">${item.company||item.issuer||''}</p></div><div><button onclick="editItem(${i})" class="btn-outline mr-2">Edit</button><button onclick="deleteItem(${i})" class="text-red-500">Del</button></div></div>`; }); html+=`</div>`; document.getElementById('content').innerHTML=html; }
-window.addItem=()=>alert('Add modal would open – implement in production'); window.editItem=(idx)=>alert(`Edit ${idx}`); window.deleteItem=(idx)=>{ if(confirm('Delete?')){ let arr=loadData(current); arr.splice(idx,1); saveData(current,arr); render(); } };
-render();
-</script></body></html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <script src="../data/portfolio.js"></script>
+  <script src="../js/backend.js"></script>
+</head>
+<body class="bg-void text-white">
+  <div class="container mx-auto p-5">
+    <h1 class="text-3xl font-bold mb-4">Admin Dashboard</h1>
+    <div class="flex flex-wrap gap-3 mb-6">
+      <button onclick="showSection('projects')" class="btn-outline">Projects</button>
+      <button onclick="showSection('experience')" class="btn-outline">Experience</button>
+      <button onclick="showSection('certifications')" class="btn-outline">Certifications</button>
+      <button onclick="showSection('skills')" class="btn-outline">Skills</button>
+      <button onclick="showSection('personal')" class="btn-outline">Personal Info</button>
+    </div>
+    <div id="content"></div>
+  </div>
+  <script>
+    let currentSection = 'projects';
+    function showSection(s) { currentSection = s; render(); }
+    function render() {
+      let data = loadData(currentSection);
+      if (currentSection === 'skills') data = Object.values(data).flat();
+      let html = `<h2 class="text-2xl mb-3">Manage ${currentSection}</h2><button onclick="addItem()" class="btn-primary mb-4">+ Add New</button><div class="space-y-3">`;
+      if (Array.isArray(data)) {
+        data.forEach((item, idx) => {
+          let title = item.title || item.name || item.role || item.degree || 'Item';
+          let subtitle = item.company || item.issuer || item.uni || '';
+          html += `<div class="glass-card p-4 flex justify-between items-center"><div><strong>${title}</strong><p class="text-sm text-muted">${subtitle}</p></div><div><button onclick="editItem(${idx})" class="btn-outline text-sm mr-2">Edit</button><button onclick="deleteItem(${idx})" class="text-red-500">Delete</button></div></div>`;
+        });
+      }
+      html += `</div>`;
+      document.getElementById('content').innerHTML = html;
+    }
+    window.addItem = () => { alert('In production: open modal to add. For now, edit data/portfolio.js directly.'); };
+    window.editItem = (idx) => { alert(`Edit item ${idx} – implement modal in production`); };
+    window.deleteItem = (idx) => {
+      if(confirm('Delete permanently?')){
+        let arr = loadData(currentSection);
+        arr.splice(idx, 1);
+        saveData(currentSection, arr);
+        render();
+      }
+    };
+    // Check authentication
+    if(!Auth.isLoggedIn()) window.location.href = 'index.html';
+    render();
+  </script>
+</body>
+</html>
