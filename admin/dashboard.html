@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Admin Dashboard</title><link rel="stylesheet" href="../css/portfolio.css"><script src="../data/portfolio.js"></script><script src="../js/backend.js"></script></head>
+<body class="bg-void text-white"><div class="container mx-auto p-5"><h1 class="text-3xl font-bold mb-4">Dashboard</h1><div class="flex gap-3 mb-6"><button onclick="showSection('projects')" class="btn-outline">Projects</button><button onclick="showSection('experience')" class="btn-outline">Experience</button><button onclick="showSection('certifications')" class="btn-outline">Certifications</button><button onclick="showSection('skills')" class="btn-outline">Skills</button></div><div id="content"></div></div><script>
+let current='projects'; function showSection(s){ current=s; render(); }
+function render(){ let data=loadData(current); let html=`<h2>Manage ${current}</h2><button onclick="addItem()" class="btn-primary mb-4">+ Add</button><div class="space-y-3">`; if(Array.isArray(data)) data.forEach((item,i)=>{ let title=item.title||item.name||item.role||'Item'; html+=`<div class="glass-card p-4 flex justify-between"><div><strong>${title}</strong><p class="text-sm">${item.company||item.issuer||''}</p></div><div><button onclick="editItem(${i})" class="btn-outline mr-2">Edit</button><button onclick="deleteItem(${i})" class="text-red-500">Del</button></div></div>`; }); html+=`</div>`; document.getElementById('content').innerHTML=html; }
+window.addItem=()=>alert('Add modal would open – implement in production'); window.editItem=(idx)=>alert(`Edit ${idx}`); window.deleteItem=(idx)=>{ if(confirm('Delete?')){ let arr=loadData(current); arr.splice(idx,1); saveData(current,arr); render(); } };
+render();
+</script></body></html>
