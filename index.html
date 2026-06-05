@@ -3,85 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ajeet Kumar - MSc Financial Engineering, Quantitative Researcher, Portfolio Optimization Expert">
+  <meta name="keywords" content="quant finance, portfolio optimization, derivatives, machine learning, financial engineering">
+  <meta name="author" content="Ajeet Kumar">
+  <meta property="og:title" content="Ajeet Kumar | Quant Finance Portfolio">
+  <meta property="og:description" content="Quantitative researcher specializing in portfolio optimization, derivatives pricing, and ML in finance">
+  <meta property="og:type" content="website">
+  
   <title>Ajeet Kumar | Quant Finance Command Center</title>
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/portfolio.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/enhancements.css">
   <link rel="stylesheet" href="css/main-theme.css">
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- External Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body class="bg-void text-white">
+  <!-- Navigation Container -->
   <div id="navbar-container"></div>
-  <main class="pt-20">
-    <!-- Hero -->
-    <section id="hero" class="min-h-screen flex items-center px-5">
+  
+  <main class="pt-0">
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center px-5 py-20">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl md:text-7xl font-black animate-slideUp">
+          Ajeet <span class="text-accent">Kumar</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-muted mt-6 max-w-3xl mx-auto animate-slideUp" style="animation-delay: 0.2s; opacity: 0;">
+          MSc Financial Engineering · M.Tech CSE · Quant Researcher & Portfolio Optimization Specialist
+        </p>
+        <div class="mt-10 flex gap-4 justify-center flex-wrap animate-slideUp" style="animation-delay: 0.4s; opacity: 0;">
+          <a href="#projects" class="btn-primary">Explore Work</a>
+          <a href="pages/contact.html" class="btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About Preview Section -->
+    <section id="about" class="py-20 px-5 bg-deep/30">
       <div class="container mx-auto">
-        <h1 class="text-5xl md:text-7xl font-black">Ajeet <span class="text-accent">Kumar</span></h1>
-        <p class="text-xl text-muted mt-4">MSc Financial Engineering · M.Tech CSE · Quant Researcher</p>
-        <a href="#projects" class="btn-primary mt-6 inline-block">Explore Work</a>
+        <div class="glass-card p-8 md:p-12 max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold mb-6 text-accent">About Me</h2>
+          <p class="text-lg leading-relaxed mb-4">
+            I'm a quantitative finance professional with a passion for portfolio optimization, derivatives pricing, and machine learning applications in finance. Currently pursuing MSc Financial Engineering from WorldQuant University while leveraging my technical expertise from M.Tech CSE at NSUT Delhi.
+          </p>
+          <p class="text-lg leading-relaxed mb-6">
+            My experience spans algorithmic trading research at Algo8.ai (IIT Kanpur), market analysis at Amul GCMMF, and virtual programs at JP Morgan in quantitative research and investment banking.
+          </p>
+          <a href="pages/about.html" class="btn-primary">Read Full Bio →</a>
+        </div>
       </div>
     </section>
-    <!-- About -->
-    <section id="about" class="py-20 px-5">
-      <div class="container mx-auto glass-card p-8">
-        <h2 class="text-3xl font-bold mb-4">About Me</h2>
-        <p id="about-text">MSc Financial Engineering (WorldQuant Univ, 87%), M.Tech CSE (NSUT, 7.92), B.Tech IT (AKTU, 7.19). Industry internships at Algo8.ai (IIT Kanpur) and Amul GCMMF, plus JP Morgan simulations. 1st place IIT Kanpur hackathon. Open for quant research, risk, financial engineering roles.</p>
-        <div class="mt-4"><a href="pages/resume.html" class="btn-outline">Download Resume →</a></div>
-      </div>
-    </section>
-    <!-- Education preview -->
+    
+    <!-- Education Preview Section -->
     <section id="education" class="py-20 px-5">
       <div class="container mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8">Education</h2>
-        <div id="edu-preview" class="grid md:grid-cols-3 gap-6"></div>
-        <div class="text-center mt-6"><a href="pages/education.html" class="btn-outline">View Full Transcripts →</a></div>
+        <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+        <div id="edu-preview" class="grid md:grid-cols-3 gap-6 mb-8"></div>
+        <div class="text-center">
+          <a href="pages/education.html" class="btn-outline">View Full Transcripts →</a>
+        </div>
       </div>
     </section>
-    <!-- Projects preview -->
-    <section id="projects" class="py-20 px-5">
+    
+    <!-- Projects Preview Section -->
+    <section id="projects" class="py-20 px-5 bg-deep/30">
       <div class="container mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8">Quant Projects</h2>
-        <div id="proj-preview" class="grid md:grid-cols-2 gap-6"></div>
-        <div class="text-center mt-6"><a href="pages/projects.html" class="btn-outline">See All Projects →</a></div>
+        <h2 class="text-3xl font-bold text-center mb-12">Quant Projects</h2>
+        <div id="proj-preview" class="grid md:grid-cols-2 gap-6 mb-8"></div>
+        <div class="text-center">
+          <a href="pages/projects.html" class="btn-outline">See All Projects →</a>
+        </div>
       </div>
     </section>
-    <!-- Skills -->
+    
+    <!-- Skills Section -->
     <section id="skills" class="py-20 px-5">
-      <div class="container mx-auto glass-card p-6">
-        <h2 class="text-3xl font-bold text-center mb-8">Technical Skills</h2>
-        <canvas id="radarChart" class="max-w-md mx-auto"></canvas>
-        <div id="skills-grid" class="grid md:grid-cols-3 gap-6 mt-8"></div>
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Technical Skills</h2>
+        <div class="glass-card p-8 md:p-12">
+          <div class="max-w-2xl mx-auto mb-8">
+            <canvas id="radarChart" style="max-width: 500px; margin: 0 auto;"></canvas>
+          </div>
+          <div id="skills-grid" class="grid md:grid-cols-3 gap-6 mt-8"></div>
+        </div>
       </div>
     </section>
-    <!-- Contact -->
-    <section id="contact" class="py-20 px-5">
-      <div class="container mx-auto glass-card p-8 text-center">
-        <h3 class="text-2xl font-bold">Let's Connect</h3>
-        <p>ajeetk095@gmail.com | +91 8756543310 | Bangalore, India</p>
-        <div class="flex justify-center gap-4 mt-4">
-          <a href="https://linkedin.com/in/ajeek095" target="_blank"><i class="fab fa-linkedin text-2xl hover:text-accent"></i></a>
-          <a href="https://github.com/ajeetk095" target="_blank"><i class="fab fa-github text-2xl hover:text-accent"></i></a>
-          <a href="https://leetcode.com/u/Ajeetk095/" target="_blank"><i class="fab fa-leetcode text-2xl hover:text-accent"></i></a>
+    
+    <!-- Contact CTA Section -->
+    <section id="contact" class="py-20 px-5 bg-deep/30">
+      <div class="container mx-auto">
+        <div class="glass-card p-8 md:p-12 text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
+          <p class="text-lg text-muted mb-8">
+            I'm always interested in discussing quant finance, portfolio optimization, and innovative ML applications in trading.
+          </p>
+          
+          <div class="flex justify-center gap-6 mb-8 flex-wrap">
+            <a href="mailto:ajeetk095@gmail.com" class="flex items-center gap-2 text-lg hover:text-accent transition-colors" title="Email">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="tel:+918756543310" class="flex items-center gap-2 text-lg hover:text-accent transition-colors" title="Phone">
+              <i class="fas fa-phone"></i> Call
+            </a>
+            <span class="text-lg text-muted">📍 Bangalore, India</span>
+          </div>
+          
+          <div class="flex justify-center gap-4 mb-8">
+            <a href="https://linkedin.com/in/ajeek095" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-accent transition-colors" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/ajeetk095" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-accent transition-colors" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://leetcode.com/u/Ajeetk095/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-accent transition-colors" title="LeetCode">
+              <i class="fas fa-code"></i>
+            </a>
+          </div>
+          
+          <a href="pages/contact.html" class="btn-primary">Send Message →</a>
         </div>
       </div>
     </section>
   </main>
+  
   <!-- Floating AI Assistant -->
-  <div id="ai-fab" class="fixed bottom-6 right-6 z-50 cursor-pointer bg-accent rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg">🤖</div>
-  <div id="ai-panel" class="fixed bottom-24 right-6 w-80 glass-card p-4 rounded-2xl hidden z-50">
-    <div class="flex justify-between"><span class="font-bold">Quant AI</span><button id="close-ai">✕</button></div>
-    <div id="ai-messages" class="h-64 overflow-y-auto text-sm my-2 space-y-2"></div>
-    <div class="flex gap-2"><input id="ai-input" class="flex-1 bg-black/30 rounded-full px-3 py-1 text-sm" placeholder="Ask..."><button id="ai-send" class="bg-accent px-3 rounded-full">➤</button></div>
+  <div id="ai-fab" class="fixed bottom-6 right-6 z-40 cursor-pointer bg-gradient-to-br from-accent to-accent2 rounded-full w-16 h-16 flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-shadow glow-hover" title="Open AI Assistant">
+    🤖
   </div>
+  
+  <div id="ai-panel" class="fixed bottom-24 right-6 w-80 glass-card p-4 rounded-2xl hidden z-50 shadow-lg flex flex-col">
+    <div class="flex justify-between items-center mb-3">
+      <span class="font-bold text-accent">Quant AI Assistant</span>
+      <button id="close-ai" class="text-xl hover:text-accent transition-colors" aria-label="Close AI panel">✕</button>
+    </div>
+    
+    <div id="ai-messages" class="h-64 overflow-y-auto text-sm mb-3 space-y-2 flex flex-col"></div>
+    
+    <div class="flex gap-2">
+      <input 
+        id="ai-input" 
+        class="flex-1 bg-black/30 border border-accent/30 rounded-full px-3 py-2 text-sm focus:border-accent focus:outline-none transition-colors" 
+        placeholder="Ask anything..."
+        aria-label="AI chat input"
+      >
+      <button 
+        id="ai-send" 
+        class="bg-accent text-black px-4 py-2 rounded-full font-semibold hover:bg-accent2 transition-colors" 
+        aria-label="Send message"
+      >
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Scripts (in correct order) -->
   <script src="data/portfolio.js"></script>
   <script src="js/backend.js"></script>
   <script src="js/nav-inject.js"></script>
   <script src="js/app.js"></script>
   <script src="js/ai-chat.js"></script>
+  <script src="js/jobs.js"></script>
   <script src="js/enhancements.js"></script>
 </body>
 </html>
