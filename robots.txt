@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ajeetkumar.vercel.app/sitemap.xml
