@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Board – Ajeet Kumar</title>
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <link rel="stylesheet" href="../css/main-theme.css">
+  <script src="../js/jobs.js"></script>
+  <script src="../js/nav-inject.js"></script>
+</head>
+<body class="bg-void text-white">
+  <div class="container mx-auto px-5 py-20">
+    <h1 class="text-4xl font-bold text-center mb-8">Live <span class="neon-text">Quant Job Board</span></h1>
+    <div class="flex flex-wrap gap-3 justify-center mb-6">
+      <input type="text" id="jobSearch" placeholder="quantitative analyst" class="bg-black/30 border border-white/20 rounded-full px-4 py-2 text-sm w-64">
+      <select id="jobCountry" class="bg-black/30 border border-white/20 rounded-full px-4 py-2 text-sm">
+        <option value="in">India</option><option value="us">USA</option><option value="gb">UK</option>
+      </select>
+      <button onclick="fetchAndRender()" class="btn-primary">Search</button>
+    </div>
+    <div id="job-list" class="grid md:grid-cols-2 gap-5"></div>
+  </div>
+  <script>
+    async function fetchAndRender() {
+      const query = document.getElementById('jobSearch').value || 'quantitative analyst finance python';
+      const country = document.getElementById('jobCountry').value;
+      document.getElementById('job-list').innerHTML = '<div class="text-center py-10"><div class="spinner mx-auto"></div> Loading live jobs...</div>';
+      const jobs = await fetchJobs(query, country);
+      if(jobs.length === 0) {
+        document.getElementById('job-list').innerHTML = '<div class="text-center py-10">No jobs found. Try different keywords.</div>';
+        return;
+      }
+      document.getElementById('job-list').innerHTML = jobs.map(j => `
+        <div class="glass-card p-5">
+          <div class="flex justify-between"><h3 class="font-bold">${j.title}</h3><span class="text-accent text-sm">${j.match}% match</span></div>
+          <p class="text-accent2 text-sm">${j.company} · ${j.location}</p>
+          <p class="text-muted text-sm">💰 ${j.salary}</p>
+          <a href="${j.link}" target="_blank" class="inline-block mt-3 text-accent text-sm">Apply →</a>
+        </div>
+      `).join('');
+    }
+    fetchAndRender();
+  </script>
+</body>
+</html>
