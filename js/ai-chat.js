@@ -3,9 +3,9 @@ async function askAI(question) {
   try {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${OPENROUTER_KEY}` },
-      body: JSON.stringify({ model: "nvidia/nemotron-3-super-120b-a12b:free", messages: [{ role: "system", content: "You are Ajeet's AI assistant. Answer based on his quant finance profile." }, { role: "user", content: question }] })
+      body: JSON.stringify({ model: "nvidia/nemotron-3-super-120b-a12b:free", messages: [{ role: "system", content: "You are Ajeet's AI assistant. Answer based on his quant finance profile: MScFE, M.Tech CSE, projects in portfolio optimization, risk, ML." }, { role: "user", content: question }] })
     });
     const data = await res.json();
-    return data.choices?.[0]?.message?.content || "I couldn't process that.";
+    return data.choices?.[0]?.message?.content || "I'm sorry, I couldn't process that.";
   } catch(e) { return "Connection error. Please try again."; }
 }
