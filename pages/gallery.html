@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery – Ajeet Kumar</title>
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <link rel="stylesheet" href="../css/main-theme.css">
+  <script src="../data/portfolio.js"></script>
+  <script src="../js/nav-inject.js"></script>
+</head>
+<body class="bg-void text-white">
+  <div class="container mx-auto px-5 py-20">
+    <h1 class="text-4xl font-bold text-center mb-8">Gallery & <span class="neon-text">Media</span></h1>
+    <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+  <script>
+    const items = loadData('gallery');
+    document.getElementById('gallery-grid').innerHTML = items.map(item => `
+      <div class="glass-card p-4 text-center">
+        <div class="text-5xl mb-2">${item.icon || (item.type === 'image' ? '🖼️' : '📄')}</div>
+        <h3 class="font-semibold">${item.title}</h3>
+        <p class="text-muted text-sm">${item.cat}</p>
+        ${item.src ? `<a href="${item.src}" target="_blank" class="text-accent text-sm mt-2 inline-block">View →</a>` : ''}
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
