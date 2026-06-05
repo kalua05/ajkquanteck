@@ -1,0 +1,61 @@
+/* Dark theme base – ensures all pages use the same dark palette */
+body.dark,
+body {
+  background: #020617;
+  color: #e8f0fe;
+}
+
+/* Override any light-mode leftovers */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: transparent !important;
+}
+
+.text-gray-900,
+.text-gray-800,
+.text-gray-700 {
+  color: #e8f0fe !important;
+}
+
+.border-gray-200,
+.border-gray-300 {
+  border-color: rgba(0, 212, 255, 0.2) !important;
+}
+
+/* Dark mode for modals */
+.modal-content {
+  background: #0a0f1f;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* Dark form inputs */
+input, textarea, select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: #fff;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #00f0b4;
+  outline: none;
+}
+
+/* Glassmorphic consistent */
+.glass-card,
+.card,
+.modal-box,
+.admin-card {
+  background: rgba(15, 25, 45, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+/* Ensure all text on dark background is readable */
+p, li, span, div:not(.special) {
+  color: #cbd5e1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
