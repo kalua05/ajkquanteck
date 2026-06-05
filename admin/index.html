@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Admin Login</title><link rel="stylesheet" href="../css/portfolio.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <script src="../js/backend.js"></script>
+</head>
 <body class="bg-void flex items-center justify-center min-h-screen">
-  <div class="glass-card p-8 w-96"><h2 class="text-2xl font-bold mb-4">Admin Login</h2><input id="user" placeholder="Username" class="w-full p-2 bg-black/30 rounded mb-3"><input id="pass" type="password" placeholder="Password" class="w-full p-2 bg-black/30 rounded mb-4"><button onclick="doLogin()" class="btn-primary w-full">Login</button><p class="text-xs text-muted mt-4">Default: admin / ajeet2025</p></div>
-  <script src="../js/backend.js"></script><script>function doLogin(){ if(Auth.login(document.getElementById('user').value, document.getElementById('pass').value).ok) location.href='dashboard.html'; else alert('Invalid'); }</script>
+  <div class="glass-card p-8 w-96">
+    <h2 class="text-2xl font-bold text-center mb-6">Admin Login</h2>
+    <input type="text" id="adminUser" placeholder="Username / Email" class="w-full bg-black/30 border border-white/20 rounded-lg px-4 py-2 mb-3">
+    <input type="password" id="adminPass" placeholder="Password" class="w-full bg-black/30 border border-white/20 rounded-lg px-4 py-2 mb-4">
+    <button onclick="doLogin()" class="btn-primary w-full">Login</button>
+    <p class="text-xs text-muted text-center mt-4">Default: admin / ajeet2025</p>
+  </div>
+  <script>
+    function doLogin() {
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+      if(Auth.login(user, pass).ok) {
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Invalid credentials');
+      }
+    }
+  </script>
 </body>
 </html>
