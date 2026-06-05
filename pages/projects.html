@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects – Ajeet Kumar</title>
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/main-theme.css">
+  <script src="../data/portfolio.js"></script>
+  <script src="../js/nav-inject.js"></script>
+</head>
+<body class="bg-void text-white">
+  <div class="container mx-auto px-5 py-20">
+    <h1 class="text-4xl font-bold mb-8">Quant <span class="neon-text">Projects</span></h1>
+    <div id="projects-list" class="grid md:grid-cols-2 gap-6"></div>
+  </div>
+  <script>
+    const projects = loadData('projects');
+    const container = document.getElementById('projects-list');
+    container.innerHTML = projects.map(p => `
+      <div class="glass-card p-6">
+        <div class="flex justify-between items-start">
+          <h3 class="text-xl font-bold">${p.title}</h3>
+          <span class="tag">${p.tech?.[0] || 'Quant'}</span>
+        </div>
+        <p class="text-gray-300 mt-2 text-sm">${p.summary}</p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          ${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+        <button onclick="toggleDetails(this)" class="mt-4 text-accent text-sm">+ Details & Metrics</button>
+        <div class="details hidden mt-4 pt-4 border-t border-white/10">
+          <p><strong>Problem:</strong> ${p.problem}</p>
+          <p><strong>Dataset:</strong> ${p.dataset}</p>
+          <p><strong>Methods:</strong> ${p.methods}</p>
+          <p><strong>Results:</strong> ${p.results}</p>
+          ${p.metrics ? `<p><strong>Metrics:</strong> ${p.metrics.join(', ')}</p>` : ''}
+        </div>
+      </div>
+    `).join('');
+    window.toggleDetails = (btn) => {
+      const details = btn.nextElementSibling;
+      details.classList.toggle('hidden');
+      btn.textContent = details.classList.contains('hidden') ? '+ Details & Metrics' : '- Hide Details';
+    };
+  </script>
+</body>
+</html>
